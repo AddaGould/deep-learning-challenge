@@ -14,6 +14,21 @@ Data Preprocessing
 ## Compiling, Training, and Evaluating the Model
 * Neural Network Model Design: The neural network model consists of an input layer, one or more hidden layers, and an output layer. The number of neurons, layers, and activation functions were adjusted to optimize the model's performance.
 
+# Define the model - deep neural net, i.e., the number of input features and hidden nodes for each layer.
+nn_model = tf.keras.models.Sequential()
+
+# First hidden layer
+nn_model.add(tf.keras.layers.Dense(units=64, activation="relu", input_dim=108, kernel_initializer="VarianceScaling"))
+
+# Second hidden layer
+nn_model.add(tf.keras.layers.Dense(units=32, activation="relu", kernel_initializer="VarianceScaling"))
+
+# Output layer
+nn_model.add(tf.keras.layers.Dense(units=1, activation="sigmoid", kernel_initializer="VarianceScaling"))
+
+# Check the structure of the model
+nn_model.summary()
+
 * Model Architecture: The model architecture varied across attempts, including changes in the number of neurons, layers, and activation functions. Attempts included increasing the number of neurons in the hidden layers, adding dropout layers for regularization, and exploring different activation functions such as ReLU, Leaky ReLU, ELU, and Tanh.
 
 * Achievement of Target Model Performance: Despite several attempts to optimize the model, the performance metrics remained below the target. The model consistently achieved a loss of approximately 0.55 and an accuracy of around 0.73.

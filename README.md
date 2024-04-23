@@ -32,7 +32,7 @@ nn_model.add(tf.keras.layers.Dense(units=32, activation=tf.keras.layers.ELU(), k
 nn_model.add(tf.keras.layers.Dense(units=16, activation="tanh", kernel_initializer="VarianceScaling"))
 
 # Output layer with Sigmoid activation for binary classification
-nn_model.add(tf.keras.layers.Dense(units=1, activation="sigmoid", kernel_initializer="VarianceScaling"))
+nn_model.add(tf.keras.layers.Dense(units=1, activation="sigmoid", kernel_initializer="VarianceScaling"))'''
 
 * Achievement of Target Model Performance: Despite several attempts to optimize the model, the performance metrics remained below the target. The model consistently achieved a loss of approximately 0.55 and an accuracy of around 0.73.
 

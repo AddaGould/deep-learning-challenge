@@ -1,7 +1,7 @@
 # deep-learning-challenge
 
 ## Analysis Report
-The purpose of this analysis is to develop a binary classification model using a sequential model to predict whether organizations funded by Alphabet Soup will be successful based on various features provided in the dataset. The dataset contains information about more than 34,000 organizations, including metadata such as application type, affiliation, classification, and income amount.
+The purpose of this analysis is to develop a binary classifier using a sequential model to predict whether organizations funded by Alphabet Soup will be successful based on various features provided in the dataset. The dataset contains information about more than 34,000 organizations, including metadata such as application type, affiliation, classification, and income amount.
 
 ## Results
 Data Preprocessing
@@ -10,24 +10,11 @@ Data Preprocessing
 * Feature Variable(s): The feature variables for the model include metadata such as application type, affiliation, classification, use case, organization type, income amount, and special considerations.
 
 * Removed Variable(s): The EIN and NAME columns were dropped from the dataset as they are identification columns and not relevant for modeling.
+  
+![Screenshot 2024-04-23 133034](https://github.com/AddaGould/deep-learning-challenge/assets/148924005/2e4a37a7-b791-480f-b188-6cc18ba3adf0)
 
 ## Compiling, Training, and Evaluating the Model
 * Neural Network Model Design: The neural network model consists of an input layer, one or more hidden layers, and an output layer. The number of neurons, layers, and activation functions were adjusted to optimize the model's performance.
-
-# Define the model - deep neural net, i.e., the number of input features and hidden nodes for each layer.
-nn_model = tf.keras.models.Sequential()
-
-# First hidden layer
-nn_model.add(tf.keras.layers.Dense(units=64, activation="relu", input_dim=108, kernel_initializer="VarianceScaling"))
-
-# Second hidden layer
-nn_model.add(tf.keras.layers.Dense(units=32, activation="relu", kernel_initializer="VarianceScaling"))
-
-# Output layer
-nn_model.add(tf.keras.layers.Dense(units=1, activation="sigmoid", kernel_initializer="VarianceScaling"))
-
-# Check the structure of the model
-nn_model.summary()
 
 * Model Architecture: The model architecture varied across attempts, including changes in the number of neurons, layers, and activation functions. Attempts included increasing the number of neurons in the hidden layers, adding dropout layers for regularization, and exploring different activation functions such as ReLU, Leaky ReLU, ELU, and Tanh.
 

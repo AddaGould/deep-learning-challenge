@@ -10,15 +10,33 @@ Data Preprocessing
 * Feature Variable(s): The feature variables for the model include metadata such as application type, affiliation, classification, use case, organization type, income amount, and special considerations.
 
 * Removed Variable(s): The EIN and NAME columns were dropped from the dataset as they are identification columns and not relevant for modeling.
-  
-![Screenshot 2024-04-23 133034](https://github.com/AddaGould/deep-learning-challenge/assets/148924005/2e4a37a7-b791-480f-b188-6cc18ba3adf0)
+
+![Screenshot 2024-04-23 133321](https://github.com/AddaGould/deep-learning-challenge/assets/148924005/32d528c8-aae3-461f-8bda-3a8cf8c37f1e)
 
 ## Compiling, Training, and Evaluating the Model
 * Neural Network Model Design: The neural network model consists of an input layer, one or more hidden layers, and an output layer. The number of neurons, layers, and activation functions were adjusted to optimize the model's performance.
 
 * Model Architecture: The model architecture varied across attempts, including changes in the number of neurons, layers, and activation functions. Attempts included increasing the number of neurons in the hidden layers, adding dropout layers for regularization, and exploring different activation functions such as ReLU, Leaky ReLU, ELU, and Tanh.
 
+'''python
+# Define the model - deep neural net, i.e., the number of input features and hidden nodes for each layer.
+nn_model = tf.keras.models.Sequential()
+
+# First hidden layer with Leaky ReLU activation
+nn_model.add(tf.keras.layers.Dense(units=64, activation=tf.keras.layers.LeakyReLU(alpha=0.01), input_dim=108, kernel_initializer="VarianceScaling"))
+
+# Second hidden layer with ELU activation
+nn_model.add(tf.keras.layers.Dense(units=32, activation=tf.keras.layers.ELU(), kernel_initializer="VarianceScaling"))
+
+# Third hidden layer with Tanh activation
+nn_model.add(tf.keras.layers.Dense(units=16, activation="tanh", kernel_initializer="VarianceScaling"))
+
+# Output layer with Sigmoid activation for binary classification
+nn_model.add(tf.keras.layers.Dense(units=1, activation="sigmoid", kernel_initializer="VarianceScaling"))
+
 * Achievement of Target Model Performance: Despite several attempts to optimize the model, the performance metrics remained below the target. The model consistently achieved a loss of approximately 0.55 and an accuracy of around 0.73.
+
+![Screenshot 2024-04-23 133628](https://github.com/AddaGould/deep-learning-challenge/assets/148924005/aa720b27-532d-4958-88e8-c561c720fd78)
 
 * Steps Taken to Improve Model Performance: Attempts to improve model performance included adjusting the number of neurons in the hidden layers, adding dropout layers for regularization, and experimenting with different activation functions. However, these modifications did not result in a significant improvement in model performance.
 
@@ -29,4 +47,4 @@ A recommendation for addressing this classification problem would be to explore 
 
 Exploring ensemble methods, such as stacking or blending multiple models, could also enhance predictive accuracy by leveraging the strengths of different algorithms. By combining the predictions of multiple models, ensemble methods often outperform individual models and provide more robust predictions.
 
-In conclusion, while deep learning models offer powerful capabilities for solving complex classification problems, they may not always be the most effective approach. By exploring alternative algorithms and techniques, such as gradient boosting and ensemble methods, we can potentially achieve better performance and provide more accurate predictions for Alphabet Soup's funding selection process.
+In conclusion, while sequential learning models offer powerful capabilities for solving complex classification problems, they may not always be the most effective approach. By exploring alternative algorithms and techniques, such as gradient boosting and ensemble methods, we can potentially achieve better performance and provide more accurate predictions for Alphabet Soup's funding selection process.

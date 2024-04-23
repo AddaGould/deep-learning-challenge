@@ -18,7 +18,7 @@ Data Preprocessing
 
 * Model Architecture: The model architecture varied across attempts, including changes in the number of neurons, layers, and activation functions. Attempts included increasing the number of neurons in the hidden layers, adding dropout layers for regularization, and exploring different activation functions such as ReLU, Leaky ReLU, ELU, and Tanh.
 
-'''python
+'''
 # Define the model - deep neural net, i.e., the number of input features and hidden nodes for each layer.
 nn_model = tf.keras.models.Sequential()
 
@@ -32,7 +32,8 @@ nn_model.add(tf.keras.layers.Dense(units=32, activation=tf.keras.layers.ELU(), k
 nn_model.add(tf.keras.layers.Dense(units=16, activation="tanh", kernel_initializer="VarianceScaling"))
 
 # Output layer with Sigmoid activation for binary classification
-nn_model.add(tf.keras.layers.Dense(units=1, activation="sigmoid", kernel_initializer="VarianceScaling"))'''
+nn_model.add(tf.keras.layers.Dense(units=1, activation="sigmoid", kernel_initializer="VarianceScaling"))
+'''
 
 * Achievement of Target Model Performance: Despite several attempts to optimize the model, the performance metrics remained below the target. The model consistently achieved a loss of approximately 0.55 and an accuracy of around 0.73.
 
